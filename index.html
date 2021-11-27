@@ -157,56 +157,6 @@
             
     
     
-        <article class="kratos-hentry kratos-entry-border-new clearfix">
-            <div class="kratos-status">
-                
-                    <i class="fa fa-refresh"></i>
-                
-                <div class="kratos-status-inner">
-                    <div class="kratos-status-content">
-                        
-                            <h1 id="1-3-meta里关键字的使用"><a href="#1-3-meta里关键字的使用" class="headerlink" title="1.3 meta里关键字的使用"></a>1.3 meta里关键字的使用</h1><h2 id="1-3-1-EditCondition关键字"><a href="#1-3-1-EditCondition关键字" class="headerlink" title="1.3.1 EditCondition关键字"></a>1.3.1 EditCondition关键字</h2><p><strong>EditCondition和Bool变量一起使用</strong><br>Name属性可以通过bCanNamePropertyShow属性控制是否可编辑</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = &quot;Parameter&quot;)</span><br><span class="line">bool bCanNamePropertyShow;</span><br><span class="line"></span><br><span class="line">UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = &quot;Parameter&quot;, meta = (EditCondition = &quot;bCanNamePropertyShow&quot;))</span><br><span class="line">FName Name;</span><br></pre></td></tr></table></figure>
-<p>![](_v_images/20200929110236823_10458.png =479x)</p>
-<p>注意：bCanNamePropertyShow属性必须是UPROPERTY标记的，<br>         当然EditCondition=“true”或者EditCondition=“false”也是可以的。</p>
-<p><strong>EditCondition和枚举变量一起使用</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">UENUM()</span><br><span class="line">enum EParameterType</span><br><span class="line">&#123;</span><br><span class="line">	S_LOCATION   UMETA(DisplayName = &quot;Location&quot;),</span><br><span class="line">	S_REMOTE     UMETA(DisplayName = &quot;Remote&quot;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = &quot;Parameter&quot;)</span><br><span class="line">TEnumAsByte&lt; enum EParameterType &gt; ParameterType;</span><br><span class="line"></span><br><span class="line">UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = &quot;Parameter&quot;, meta = (EditCondition = &quot;ParameterType == EParameterType::S_LOCATION&quot;))</span><br><span class="line">FName Name;</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-3-2-AllowedClasses关键字"><a href="#1-3-2-AllowedClasses关键字" class="headerlink" title="1.3.2 AllowedClasses关键字"></a>1.3.2 AllowedClasses关键字</h2><p>AllowedClasses关键字用来限制变量类型，如下只能选择UTexture相关的资源文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = &quot;Data Asset&quot;, meta = (AllowedClasses = &quot;Texture&quot;))</span><br><span class="line">TMap&lt;FName, FStringAssetReference&gt; StringAssetReferenceDataSets;</span><br></pre></td></tr></table></figure>
-                        
-                    </div>
-                </div>
-            </div>
-            
-                <footer class="kratos-post-meta-new">
-                    <span class="pull-left">
-                        <a><i class="fa fa-calendar"></i></a><a>2021-11-27</a>
-                        
-                        
-                            <!-- 当前仅支持valine/waline自带的统计功能 -->
-                            
-                        
-                        
-                            <!-- 当前仅支持waline自带的统计功能 -->
-                            
-                        
-                    </span>
-                    
-                    
-                        <span class="pull-right">
-                            <a class="read-more" href="/2021/11/27/1.1.3%20meta%E9%87%8C%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%BF%E7%94%A8/" title="留言">留言<i class="fa fa-chevron-circle-right"></i></a>
-                        </span>
-                    
-
-                </footer>
-            
-        </article>
-    
-
-    
-    
         <article class="kratos-hentry clearfix">
             <div class="kratos-entry-border-new clearfix">
                 
@@ -305,9 +255,6 @@
   <div class="tab-content">
       <ul class="list-group">
         
-        
-          
-          
         
           
           
